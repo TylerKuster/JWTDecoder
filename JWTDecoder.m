@@ -1,13 +1,14 @@
 //
-//  NSString+JWTDecoder.m
+//  JWTDecoder.m
+//  Helios
 //
 //  Created by Tyler Kuster on 3/2/17.
 //  Copyright © 2017 Tyler Kuster. All rights reserved.
 //
 
-#import "NSString+JWTDecoder.h"
+#import "JWTDecoder.h"
 
-@implementation NSString (JWTDecoder)
+@implementation JWTDecoder
 
 + (NSDictionary*)decodeJWTToken:(NSString*)jwtToken
 {
@@ -44,7 +45,7 @@
 
 + (NSString*)expirationEpochFromJWTToken:(NSString*)jwtToken
 {
-    NSDictionary* decodedJWT = [NSString decodeJWTToken:jwtToken];
+    NSDictionary* decodedJWT = [JWTDecoder decodeJWTToken:jwtToken];
     
     return [NSString stringWithFormat:@"%@", [decodedJWT objectForKey:@"exp"]];
 }
